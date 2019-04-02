@@ -9,15 +9,7 @@ use App\Model\Flight_list;
 
 class FlightListDetailController extends Controller {
 
-    public function countTransit() {
-        return DB::table('flight_list')
-                        ->join('transits', 'transits.transit_fl_id', '=', 'flight_list.fl_id')
-                        ->select(DB::raw('COUNT(transits.transit_fl_id) as count'), 'transits.transit_fl_id')
-                        ->groupBy('transits.transit_fl_id')
-                        ->get();
-    }
-    
-    public function flight_list(Request $request) {
+     public function flight_list(Request $request) {
         return DB::table('flight_list')
                 ->join('cities', 'cities.city_id', '=', 'flight_list.fl_city_from_id')
                 ->join('airlines', 'flight_list.fl_airline_id', '=', 'airlines.airline_id')
@@ -27,4 +19,14 @@ class FlightListDetailController extends Controller {
                 ->get();
         
     }
+    
+    public function countTransit() {
+        return DB::table('flight_list')
+                        ->join('transits', 'transits.transit_fl_id', '=', 'flight_list.fl_id')
+                        ->select(DB::raw('COUNT(transits.transit_fl_id) as count'), 'transits.transit_fl_id')
+                        ->groupBy('transits.transit_fl_id')
+                        ->get();
+    }
+    
+   
 }

@@ -24,14 +24,15 @@
                         </div>
                         <div class="collapse navbar-collapse" id="main-navbar">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{ route('city-list') }}">City With Airport</a></li>
-                                <li><a href="{{ route('airline-list') }}">International Airlines</a></li>
-
+                                
                                 @if (Session::get('login') == TRUE)
-                                <li><a href="#">Welcome {{Session::get('user_first_name')}} {{Session::get('user_last_name')}}</a></li>
+                                <li><a href="#">Welcome {{Session::get('user_last_name')}} {{Session::get('user_first_name')}}</a></li>
                                 @else
                                 <li><a href="#">Welcome message</a></li>
                                 @endif
+                                
+                                <li><a href="{{ route('city-list') }}">City With Airport</a></li>
+                                <li><a href="{{ route('airline-list') }}">International Airlines</a></li>           
 
                                 <li><a href="{{route('index')}}">Flights</a></li>
 

@@ -15,11 +15,9 @@ class FlightListController extends Controller {
 
         $data = new FlightListDetailController();
         $flightlists = $data->flight_list($request);
-        
-        //get transit
+
         $transits = $data->countTransit();
 
-        //calculate cost
         $form_departure = $request->input('departure');
         $fdepart = strtotime($form_departure);
         foreach ($flightlists as $flightlist):
