@@ -26,7 +26,7 @@
                         @endif
                     </p>
                     <div class="panel-body">
-                        <form role="form" action="{{route('create-flight')}}" method="post">
+                        <form role="form" action="{{route('flight-create')}}" method="post">
                             {{csrf_field()}}
                             <div class="row">
                                 <div class="col-sm-4">
